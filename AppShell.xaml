@@ -12,9 +12,4 @@
         ContentTemplate="{DataTemplate pages:ToDoListPage}"
         Route="ToDoList" />
 
-    <ShellContent
-        Title="Details"
-        ContentTemplate="{DataTemplate pages:DetailsPage}"
-        Route="Details" />
-
 </Shell>

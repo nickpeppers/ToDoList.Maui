@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ToDoList.Maui.ViewModels"
              x:Class="ToDoList.Maui.Pages.DetailsPage"
+             Shell.PresentationMode="ModalAnimated"
              Title="Details">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:DetailsViewModel />
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="Auto, Auto, Auto, *, Auto">
+        <Label Margin="4" Text="Task"/>
+        <Border Grid.Row="1" Margin="4">
+            <Entry Margin="8" Placeholder="Title" Text="{Binding ToDoItem.Title}"/>
+        </Border>
+        <Label Grid.Row="2" Margin="4" Text="Description"/>
+        <Border Grid.Row="3" Margin="4">
+            <Editor Margin="8" Placeholder="Enter description here" Text="{Binding ToDoItem.Description}"/>
+        </Border>
+        <Button Grid.Row="4" Margin="4" Text="Close" Command="{Binding CloseCommand}"/>
+    </Grid>
 </ContentPage>

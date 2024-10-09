@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using ToDoList.Maui.Helpers;
+using ToDoList.Maui.Services;
 
 namespace ToDoList.Maui
 {
@@ -9,6 +12,7 @@ namespace ToDoList.Maui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -16,8 +20,9 @@ namespace ToDoList.Maui
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+            ServiceContainer.Register<INavigationService>(() => new NavigationService());
 
             return builder.Build();
         }
