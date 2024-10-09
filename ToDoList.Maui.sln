@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Maui", "ToDoList.Maui.csproj", "{20FA6A13-AADD-4492-9517-4718F7AC07F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20FA6A13-AADD-4492-9517-4718F7AC07F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C92061DA-764F-460D-8012-25817E367A92}
+	EndGlobalSection
+EndGlobal
