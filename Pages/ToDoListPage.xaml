@@ -5,10 +5,13 @@
              xmlns:models="clr-namespace:ToDoList.Maui.Models"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ToDoList.Maui.Pages.ToDoListPage"
-             Title="To Do">
+             Title="To Do Items">
     <ContentPage.BindingContext>
         <vm:ToDoListViewModel x:Name="_viewModel"/>
     </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing"/>
+    </ContentPage.Behaviors>
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:IsStringNotNullOrEmptyConverter x:Key="_isStringNullOrEmptyConverter"/>
@@ -23,22 +26,28 @@
                         <SwipeView.RightItems>
                             <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference _viewModel}, Path=RemoveItemCommand}" CommandParameter="{Binding .}"/>
                         </SwipeView.RightItems>
-                        <Grid RowDefinitions="Auto, Auto, Auto, Auto, 1" ColumnDefinitions="*, Auto" RowSpacing="0">
+                        <Grid RowDefinitions="Auto, Auto, 1" ColumnDefinitions="*, Auto" RowSpacing="0">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference _viewModel}, Path=ModifyToDoItemCommand}" CommandParameter="{Binding .}"/>
                             </Grid.GestureRecognizers>
-                            <Label Margin="8,8" Text="Task" FontSize="Large"/>
-                            <Label Grid.Row="1" Margin="8,8" Text="{Binding Title}" IsVisible="{Binding Title, Converter={StaticResource _isStringNullOrEmptyConverter}}" MaxLines="1" FontSize="Large" LineBreakMode="TailTruncation"/>
-                            <Label Grid.Row="2" Margin="8,8" Text="Description" IsVisible="{Binding Description, Converter={StaticResource _isStringNullOrEmptyConverter}}" FontSize="Large"/>
-                            <Label Grid.Row="3" Margin="8,8" Text="{Binding Description}" IsVisible="{Binding Description, Converter={StaticResource _isStringNullOrEmptyConverter}}" 
-                                   MaxLines="2" FontSize="Medium" LineBreakMode="TailTruncation"/>
-                            <CheckBox Grid.RowSpan="5" Grid.Column="1" Margin="8" IsChecked="{Binding Completed}" VerticalOptions="Center" HorizontalOptions="Center"/>
-                            <BoxView Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="End" HeightRequest="1"/>
+                            <Label Margin="8,8" Text="{Binding Title}" IsVisible="{Binding Title, Converter={StaticResource _isStringNullOrEmptyConverter}}" 
+                                   MaxLines="1" FontSize="Large" LineBreakMode="TailTruncation" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Margin="8,4,8,8" Text="{Binding Description}" IsVisible="{Binding Description, Converter={StaticResource _isStringNullOrEmptyConverter}}" 
+                                   MaxLines="2" FontSize="Medium" LineBreakMode="TailTruncation">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Description: "/>
+                                        <Span Text="{Binding Description}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <CheckBox Grid.RowSpan="2" Grid.Column="1" Margin="8" IsChecked="{Binding Completed}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <BoxView Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="End" HeightRequest="1"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Grid.Row="2" Margin="8" Text="Add Task" Command="{Binding AddToDoItemCommand}"/>
+        <Button Grid.Row="2" Margin="8" Text="Add To Do Item" Command="{Binding AddToDoItemCommand}"/>
     </Grid>
 </ContentPage>

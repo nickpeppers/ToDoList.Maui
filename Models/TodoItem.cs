@@ -4,6 +4,8 @@ namespace ToDoList.Maui.Models
 {
     public partial class ToDoItem : ObservableObject
     {
+        public required string ParentId { get; set; }
+
         public string Id = Guid.NewGuid().ToString();
 
         [ObservableProperty]

@@ -9,7 +9,7 @@
         <vm:DetailsViewModel />
     </ContentPage.BindingContext>
     <Grid RowDefinitions="Auto, Auto, Auto, *, Auto">
-        <Label Margin="4" Text="Task"/>
+        <Label Margin="4" Text="To Do"/>
         <Border Grid.Row="1" Margin="4">
             <Entry Margin="8" Placeholder="Title" Text="{Binding ToDoItem.Title}"/>
         </Border>

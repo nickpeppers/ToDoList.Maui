@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ToDoList.Maui.ViewModels"
+             xmlns:models="clr-namespace:ToDoList.Maui.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ToDoList.Maui.Pages.TasksToDoPage"
+             Title="Tasks">
+    <ContentPage.BindingContext>
+        <vm:TasksToDoViewModel x:Name="_viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding AppearingCommand}" EventName="Appearing"/>
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="1, *, Auto">
+        <BoxView VerticalOptions="Start" HeightRequest="1"/>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding TasksToDoCollection}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:TasksToDo}">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem Text="Delete" BackgroundColor="Red" Command="{Binding Source={x:Reference _viewModel}, Path=RemoveTasksToDoCommand}" CommandParameter="{Binding .}"/>
+                        </SwipeView.RightItems>
+                        <SwipeView.LeftItems>
+                            <SwipeItem Text="Edit" BackgroundColor="Blue" Command="{Binding Source={x:Reference _viewModel}, Path=ModifyTasksToDoTitleCommand}" CommandParameter="{Binding .}"/>
+                        </SwipeView.LeftItems>
+                        <Grid RowDefinitions="*, 1" RowSpacing="0">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference _viewModel}, Path=ModifyToDoItemsCommand}" CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                            <Label Margin="8" Text="{Binding Title}" MaxLines="1" FontSize="Large" LineBreakMode="TailTruncation" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                            <BoxView Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="End" HeightRequest="1"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="2" Margin="8" Text="Add Task" Command="{Binding AddTasksToDoCommand}"/>
+    </Grid>
+</ContentPage>

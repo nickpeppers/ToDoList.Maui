@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="ToDoList"
-        ContentTemplate="{DataTemplate pages:ToDoListPage}"
+        ContentTemplate="{DataTemplate pages:TasksToDoPage}"
         Route="ToDoList" />
 
 </Shell>

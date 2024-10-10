@@ -8,6 +8,7 @@ namespace ToDoList.Maui
         {
             InitializeComponent();
 
+            Routing.RegisterRoute(nameof(ToDoListPage), typeof(ToDoListPage));
             Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
         }
     }
