@@ -22,7 +22,11 @@ namespace ToDoList.Maui
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            Akavache.Registrations.Start(AppInfo.Current.Name);
+
             ServiceContainer.Register<INavigationService>(() => new NavigationService());
+            ServiceContainer.Register<ICacheService>(() => new CacheService());
+            ServiceContainer.Register<IDisplayPromptService>(() => new DisplayPromptService());
 
             return builder.Build();
         }
