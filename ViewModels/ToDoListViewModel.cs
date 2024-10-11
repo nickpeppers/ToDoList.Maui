@@ -34,6 +34,12 @@ namespace ToDoList.Maui.ViewModels
         }
 
         [RelayCommand]
+        async Task CheckChanged()
+        {
+            await SaveToCache();
+        }
+
+        [RelayCommand]
         async Task ModifyToDoItem(ToDoItem todoItem)
         {
             await _navigationService.NavigateToAsync(nameof(DetailsPage), new Dictionary<string, object>

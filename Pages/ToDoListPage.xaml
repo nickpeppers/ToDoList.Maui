@@ -41,7 +41,11 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <CheckBox Grid.RowSpan="2" Grid.Column="1" Margin="8" IsChecked="{Binding Completed}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <CheckBox Grid.RowSpan="2" Grid.Column="1" Margin="8" IsChecked="{Binding Completed}" VerticalOptions="Center" HorizontalOptions="Center">
+                                <CheckBox.Behaviors>
+                                    <toolkit:EventToCommandBehavior Command="{Binding Source={x:Reference _viewModel}, Path=CheckChangedCommand}" EventName="CheckedChanged"/>
+                                </CheckBox.Behaviors>
+                            </CheckBox>
                             <BoxView Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="End" HeightRequest="1"/>
                         </Grid>
                     </SwipeView>

@@ -22,6 +22,7 @@ namespace ToDoList.Maui.Models
         [ObservableProperty]
         string _description = string.Empty;
 
+        [MemoryPackInclude]
         [ObservableProperty]
         bool _completed;
     }
