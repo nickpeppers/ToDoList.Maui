@@ -1,10 +1,5 @@
-﻿using Akavache;
-using Moq;
-using System.Reactive.Linq;
-using ToDoList.Shared;
-using ToDoList.Shared.Helpers;
+﻿using System.Reactive.Linq;
 using ToDoList.Shared.Models;
-using ToDoList.Shared.Services;
 
 namespace ToDoList.Test.Helpers
 {
@@ -20,7 +15,7 @@ namespace ToDoList.Test.Helpers
         [Fact]
         void Serialize()
         {
-            var tasksToByteArray = CacheExtensions.Serialize(_tasksToDoFixture.TasksToDoList);
+            var tasksToByteArray = _tasksToDoFixture.CacheService.Serialize(_tasksToDoFixture.TasksToDoList);
 
             Assert.NotNull(tasksToByteArray);
             Assert.NotEmpty(tasksToByteArray);
@@ -29,7 +24,7 @@ namespace ToDoList.Test.Helpers
         [Fact]
         void Deserialize()
         {
-            var tasksToList = CacheExtensions.Deserialize<List<TasksToDo>>(_tasksToDoFixture.TasksToDoBytes);
+            var tasksToList = _tasksToDoFixture.CacheService.Deserialize<List<TasksToDo>>(_tasksToDoFixture.TasksToDoBytes);
             var firstTask = tasksToList.First();
             var lastTask = tasksToList.Last();
             var count = tasksToList.Count();
@@ -45,26 +40,5 @@ namespace ToDoList.Test.Helpers
 
             Assert.Equal(4, count);
         }
-
-        //[Fact]
-        //async void GetTasksTodo()
-        //{
-        //    var mockCache = new Mock<ICacheService>();
-        //    var mockSecureBlobCache = new Mock<ISecureBlobCache>();
-        //    var mockObservable = new Mock<IObservable<byte[]>>();
-
-        //    //mockObservable.ev;
-        //    //mockCache.Setup(x => x.Secure).Returns(mockSecureBlobCache.Object);
-        //    mockCache.Setup(sec => sec.Secure.Get(Constants.TasksTodo)).Returns(_tasksToDoFixture.TasksToDoBytes);
-        //    //var mockSecureStorage = new Mock<ISecureBlobCache>();
-        //    //var mockObservable = new Mock<IObservable<byte[]>>();
-        //    ////mockObservable.Setup(o => o.
-        //    //mockSecureStorage.Setup(get => get.Get(Constants.TasksTodo)).ReturnsAsync(_tasksToDoBytes);
-        //    //mockCache.Setup(secStorage => secStorage.Secure).Returns(mockSecureStorage.Object);
-
-        //    var tasksToDo = await mockCache.Object.GetTasksToDo();
-        //    Assert.NotNull(tasksToDo);
-        //    Assert.NotEmpty(tasksToDo);
-        //}
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Akavache;
+using MemoryPack;
 using System.Reactive.Linq;
+using ToDoList.Shared.Models;
 
 namespace ToDoList.Shared.Services
 {
@@ -62,6 +64,31 @@ namespace ToDoList.Shared.Services
         {
             await BlobCache.Shutdown();
         }
+
+        public async Task SaveTasksToDo(List<TasksToDo> tasksToDo)
+        {
+            var bytes = Serialize(tasksToDo);
+            await Secure.Insert(Constants.TasksTodo, bytes);
+        }
+
+        public async Task<List<TasksToDo>> GetTasksToDo()
+        {
+            var bytes = await Secure.Get(Constants.TasksTodo);
+            var tasksToDo = Deserialize<List<TasksToDo>>(bytes);
+            return tasksToDo;
+        }
+
+        public byte[] Serialize<T>(T obj)
+        {
+            var bytes = MemoryPackSerializer.Serialize(obj);
+            return bytes;
+        }
+
+        public T Deserialize<T>(byte[] byteArray) where T : new()
+        {
+            var obj = MemoryPackSerializer.Deserialize<T>(byteArray);
+            return obj ?? new T();
+        }
     }
 
     public interface ICacheService
@@ -102,5 +129,34 @@ namespace ToDoList.Shared.Services
         /// </summary>
         /// <returns></returns>
         Task Shutdown();
+
+        /// <summary>
+        /// Saves TasksToDo to storage
+        /// </summary>
+        /// <param name="tasksToDo"></param>
+        /// <returns></returns>
+        Task SaveTasksToDo(List<TasksToDo> tasksToDo);
+
+        /// <summary>
+        /// Retrieves list of TasksToDo from storage
+        /// </summary>
+        /// <returns></returns>
+        Task<List<TasksToDo>> GetTasksToDo();
+
+        /// <summary>
+        /// Serializes object to byte[]
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        byte[] Serialize<T>(T obj);
+
+        /// <summary>
+        /// Deserialized byte[] to object
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="byteArray"></param>
+        /// <returns></returns>
+        T Deserialize<T>(byte[] byteArray) where T : new();
     }
 }

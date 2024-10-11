@@ -58,11 +58,17 @@
 
 	<ItemGroup>
 	  <AndroidResource Remove="ToDoList.Shared\**" />
+	  <AndroidResource Remove="ToDoList.Test\**" />
 	  <Compile Remove="ToDoList.Shared\**" />
+	  <Compile Remove="ToDoList.Test\**" />
 	  <EmbeddedResource Remove="ToDoList.Shared\**" />
+	  <EmbeddedResource Remove="ToDoList.Test\**" />
 	  <MauiCss Remove="ToDoList.Shared\**" />
+	  <MauiCss Remove="ToDoList.Test\**" />
 	  <MauiXaml Remove="ToDoList.Shared\**" />
+	  <MauiXaml Remove="ToDoList.Test\**" />
 	  <None Remove="ToDoList.Shared\**" />
+	  <None Remove="ToDoList.Test\**" />
 	</ItemGroup>
 
 	<ItemGroup>

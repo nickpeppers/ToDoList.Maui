@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using ToDoList.Shared.Helpers;
 using ToDoList.Shared.Models;
+using ToDoList.Shared.Services;
 
 namespace ToDoList.Test
 {
@@ -27,6 +27,8 @@ namespace ToDoList.Test
             },
         };
 
+        public ICacheService CacheService { get; } = new CacheService();
+
         public TasksToDoFixture()
         {
             foreach (var task in TasksToDoList)
@@ -45,7 +47,7 @@ namespace ToDoList.Test
                 }
             }
 
-            TasksToDoBytes = CacheExtensions.Serialize(TasksToDoList);
+            TasksToDoBytes = CacheService.Serialize(TasksToDoList);
         }
 
         public void Dispose() { }
