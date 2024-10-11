@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Maui.Helpers
+﻿namespace ToDoList.Shared.Helpers
 {
     /// <summary>
     /// A simple service container implementation, singleton only

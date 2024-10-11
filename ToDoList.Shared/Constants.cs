@@ -1,6 +1,5 @@
-﻿namespace ToDoList.Maui
+﻿namespace ToDoList.Shared
 {
-
     /// <summary>
     /// Constants used for passing queryable properties and saving to cache
     /// </summary>

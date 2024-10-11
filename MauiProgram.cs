@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using ToDoList.Maui.Helpers;
-using ToDoList.Maui.Services;
+using ToDoList.Shared.Helpers;
+using ToDoList.Shared.Services;
 
 namespace ToDoList.Maui
 {

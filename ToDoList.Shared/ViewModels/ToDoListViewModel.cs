@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using ToDoList.Maui.Helpers;
-using ToDoList.Maui.Models;
-using ToDoList.Maui.Pages;
-using ToDoList.Maui.Services;
+using ToDoList.Shared.Helpers;
+using ToDoList.Shared.Models;
+using ToDoList.Shared.Pages;
+using ToDoList.Shared.Services;
 
-namespace ToDoList.Maui.ViewModels
+namespace ToDoList.Shared.ViewModels
 {
     public partial class ToDoListViewModel : ObservableObject, IQueryAttributable
     {
@@ -49,7 +49,7 @@ namespace ToDoList.Maui.ViewModels
         }
 
         [RelayCommand]
-        async Task AddToDoItem ()
+        async Task AddToDoItem()
         {
             var newToDoItem = new ToDoItem() { ParentId = _parentId };
             ToDoItems?.Add(newToDoItem);

@@ -1,4 +1,4 @@
-namespace ToDoList.Maui.Pages;
+namespace ToDoList.Shared.Pages;
 
 /// <summary>
 /// Main Page with list of tasks

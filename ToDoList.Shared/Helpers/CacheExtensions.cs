@@ -1,10 +1,9 @@
-﻿using Akavache;
-using MemoryPack;
+﻿using MemoryPack;
 using System.Reactive.Linq;
-using ToDoList.Maui.Models;
-using ToDoList.Maui.Services;
+using ToDoList.Shared.Models;
+using ToDoList.Shared.Services;
 
-namespace ToDoList.Maui.Helpers
+namespace ToDoList.Shared.Helpers
 {
     /// <summary>
     /// Cache extensions to serialize/deserialize data to/from a byte[] for storage using MemoryPack

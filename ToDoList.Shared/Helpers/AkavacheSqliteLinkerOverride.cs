@@ -1,6 +1,6 @@
 ﻿using Akavache.Sqlite3;
 
-namespace ToDoList.Maui.Helpers
+namespace ToDoList.Shared.Helpers
 {
     /// <summary>
     /// Required by Akavache to prevent removal during build

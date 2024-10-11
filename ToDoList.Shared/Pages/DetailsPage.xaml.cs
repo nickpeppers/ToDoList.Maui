@@ -1,4 +1,4 @@
-namespace ToDoList.Maui.Pages;
+namespace ToDoList.Shared.Pages;
 
 public partial class DetailsPage : ContentPage
 {

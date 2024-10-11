@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using MemoryPack;
 
-namespace ToDoList.Maui.Models
+namespace ToDoList.Shared.Models
 {
     /// <summary>
     /// List of to do items per task

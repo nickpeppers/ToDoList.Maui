@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="akavache" Version="10.1.6" />
+    <PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
+    <PackageReference Include="CommunityToolkit.Maui.Core" Version="9.1.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="MemoryPack" Version="1.21.3" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.91" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\DetailsPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\TasksToDoPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ToDoListPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Pages\DetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\TasksToDoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\ToDoListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+
+</Project>

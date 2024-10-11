@@ -1,7 +1,7 @@
 ﻿using Akavache;
 using System.Reactive.Linq;
 
-namespace ToDoList.Maui.Services
+namespace ToDoList.Shared.Services
 {
     /// <summary>
     /// Akavache cache implementation to store data

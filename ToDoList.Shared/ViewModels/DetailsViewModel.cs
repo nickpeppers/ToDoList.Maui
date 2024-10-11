@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ToDoList.Maui.Helpers;
-using ToDoList.Maui.Models;
-using ToDoList.Maui.Services;
+using ToDoList.Shared.Helpers;
+using ToDoList.Shared.Models;
+using ToDoList.Shared.Services;
 
-namespace ToDoList.Maui.ViewModels
+namespace ToDoList.Shared.ViewModels
 {
     public partial class DetailsViewModel : ObservableObject, IQueryAttributable
     {

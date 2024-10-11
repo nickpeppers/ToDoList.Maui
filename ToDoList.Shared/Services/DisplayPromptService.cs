@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Maui.Services
+﻿namespace ToDoList.Shared.Services
 {
     /// <summary>
     /// Wrapper for Maui DisplayPromptAsync

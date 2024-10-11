@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using ToDoList.Maui.Helpers;
-using ToDoList.Maui.Models;
-using ToDoList.Maui.Pages;
-using ToDoList.Maui.Services;
+using ToDoList.Shared.Helpers;
+using ToDoList.Shared.Models;
+using ToDoList.Shared.Pages;
+using ToDoList.Shared.Services;
 
-namespace ToDoList.Maui.ViewModels
+namespace ToDoList.Shared.ViewModels
 {
     public partial class TasksToDoViewModel : ObservableObject
     {
@@ -79,9 +79,9 @@ namespace ToDoList.Maui.ViewModels
                     TasksToDoCollection = new ObservableCollection<TasksToDo>(tasksToDoList);
                 }
             }
-            catch (KeyNotFoundException) 
+            catch (KeyNotFoundException)
             {
-                Console.WriteLine("Key not found first run"); 
+                Console.WriteLine("Key not found first run");
             }
             catch (Exception ex)
             {

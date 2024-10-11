@@ -57,6 +57,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="ToDoList.Shared\**" />
+	  <Compile Remove="ToDoList.Shared\**" />
+	  <EmbeddedResource Remove="ToDoList.Shared\**" />
+	  <MauiCss Remove="ToDoList.Shared\**" />
+	  <MauiXaml Remove="ToDoList.Shared\**" />
+	  <None Remove="ToDoList.Shared\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove=".gitattributes" />
 	  <None Remove=".gitignore" />
 	  <None Remove="README.md" />
@@ -75,21 +84,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\TasksToDoPage.xaml.cs">
-	    <DependentUpon>TasksToDoPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\DetailsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ToDoListPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\TasksToDoPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <ProjectReference Include="ToDoList.Shared\ToDoList.Shared.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
 using MemoryPack;
+using System.Collections.ObjectModel;
 
-namespace ToDoList.Maui.Models
+namespace ToDoList.Shared.Models
 {
     /// <summary>
     /// Task with a list of to do items

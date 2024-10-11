@@ -1,4 +1,4 @@
-namespace ToDoList.Maui.Pages;
+namespace ToDoList.Shared.Pages;
 
 /// <summary>
 /// Second Page showing list of ToDoItems per task

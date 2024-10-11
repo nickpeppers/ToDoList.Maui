@@ -1,4 +1,4 @@
-﻿using ToDoList.Maui.Pages;
+﻿using ToDoList.Shared.Pages;
 
 namespace ToDoList.Maui
 {
