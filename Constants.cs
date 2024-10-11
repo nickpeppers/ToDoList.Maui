@@ -1,5 +1,9 @@
 ﻿namespace ToDoList.Maui
 {
+
+    /// <summary>
+    /// Constants used for passing queryable properties and saving to cache
+    /// </summary>
     public static class Constants
     {
         public const string TasksTodo = "TasksTodo";

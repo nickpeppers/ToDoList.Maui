@@ -79,6 +79,10 @@ namespace ToDoList.Maui.ViewModels
                     TasksToDoCollection = new ObservableCollection<TasksToDo>(tasksToDoList);
                 }
             }
+            catch (KeyNotFoundException) 
+            {
+                Console.WriteLine("Key not found first run"); 
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading from cache: {ex}");

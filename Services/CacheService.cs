@@ -1,9 +1,11 @@
 ﻿using Akavache;
 using System.Reactive.Linq;
-using ToDoList.Maui.Models;
 
 namespace ToDoList.Maui.Services
 {
+    /// <summary>
+    /// Akavache cache implementation to store data
+    /// </summary>
     public class CacheService : ICacheService
     {
         public ISecureBlobCache Secure
@@ -62,19 +64,6 @@ namespace ToDoList.Maui.Services
         }
     }
 
-    public static class CacheExtensions
-    {
-        public static async Task SaveTasksToDo(this ICacheService cacheService, List<TasksToDo> tasksToDo)
-        {
-            await cacheService.Secure.InsertObject(Constants.TasksTodo, tasksToDo);
-        }
-
-        public static async Task<List<TasksToDo>> GetTasksToDo(this ICacheService cacheService)
-        {
-            return await cacheService.Secure.GetOrCreateObject(Constants.TasksTodo, () => new List<TasksToDo>());
-        }
-    }
-
     public interface ICacheService
     {
         /// <summary>
@@ -108,7 +97,7 @@ namespace ToDoList.Maui.Services
         Task ClearUserAccount();
 
         /// <summary>
-        /// Critical to the integrity of your Akavache cache and must be called when your application shuts down
+        /// From docs: Critical to the integrity of your Akavache cache and must be called when your application shuts down
         /// NOTE: Doesn't seem like it actually has to be called data still appears to always persist. May have been changed in later versions.
         /// </summary>
         /// <returns></returns>

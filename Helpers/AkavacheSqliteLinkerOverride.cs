@@ -2,6 +2,9 @@
 
 namespace ToDoList.Maui.Helpers
 {
+    /// <summary>
+    /// Required by Akavache to prevent removal during build
+    /// </summary>
     [Preserve]
     public static class LinkerPreserve
     {
@@ -12,7 +15,5 @@ namespace ToDoList.Maui.Helpers
         }
     }
 
-    public class PreserveAttribute : Attribute
-    {
-    }
+    public class PreserveAttribute : Attribute { }
 }
