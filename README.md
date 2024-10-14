@@ -11,4 +11,4 @@
 * Auto Saves changes
 * Swipe for left/right for more actions (delete, edit task name)
 * xUnit test project doesn't always like to behave unload it if need be.
-* Had to move all shareable code to a .NET 8 only project for the test project to build/reference it and even then it'll show a bunch of squiggles in VS 2022.
+* Only tested on Android and Windows
