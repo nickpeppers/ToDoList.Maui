@@ -33,18 +33,15 @@ namespace ToDoList.Test.ViewModels
                 It.IsAny<string>(), It.IsAny<int>(), It.IsAny<string>()))
                 .Returns(Task.FromResult("new Task"))
                 .Returns(Task.FromResult("new Task Name"));
+
+            ServiceContainer.Register<ICacheService>(() => new CacheService());
+            ServiceContainer.Register<INavigationService>(() => new NavigationService());
+            ServiceContainer.Register(() => _displayPromptService.Object);
         }
 
         [Fact]
         async Task AddTasksToDoTest()
         {
-            var navigationService = new NavigationService();
-
-            ServiceContainer.Clear();
-            ServiceContainer.Register<ICacheService>(() => new CacheService());
-            ServiceContainer.Register<INavigationService>(() => new NavigationService());
-            ServiceContainer.Register(() => _displayPromptService.Object);
-
             var viewModel = new TasksToDoViewModel();
             viewModel.TasksToDoCollection =  new ObservableCollection<TasksToDo>(_tasksToDoList);
 
@@ -59,13 +56,6 @@ namespace ToDoList.Test.ViewModels
         [Fact]
         async Task ModifyTasksToDoTitleTest()
         {
-            var navigationService = new NavigationService();
-
-            ServiceContainer.Clear();
-            ServiceContainer.Register<ICacheService>(() => new CacheService());
-            ServiceContainer.Register<INavigationService>(() => new NavigationService());
-            ServiceContainer.Register(() => _displayPromptService.Object);
-
             var viewModel = new TasksToDoViewModel();
             viewModel.TasksToDoCollection = new ObservableCollection<TasksToDo>(_tasksToDoList);
 
